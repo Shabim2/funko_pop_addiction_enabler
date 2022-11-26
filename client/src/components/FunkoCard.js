@@ -31,7 +31,7 @@ export default function FunkoCard(props) {
                   const { name, price, redirectUrl } = website;
                   return (
                     <ListItem dense>
-                      <ListItemButton component="a" href={redirectUrl}>
+                      <ListItemButton component="a" href={redirectUrl} target="_blank">
                         <ListItemText>
                           {name}: ${price}
                         </ListItemText>
