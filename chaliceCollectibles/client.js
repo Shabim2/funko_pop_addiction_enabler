@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
+const HTMLParser = require('node-html-parser');
 
 const getProducts = async () => {
+    const products = [];
     const response = await fetch('https://chalicecollectibles.com/collections/web-anime', {
         headers: {
             'authority': 'chalicecollectibles.com',
@@ -20,10 +22,33 @@ const getProducts = async () => {
     });
 
     const body = await response.text();
-    const { products } = JSON.parse(body.split('var meta = ')[1].split(';')[0]);
+    const { products: _products } = JSON.parse(body.split('var meta = ')[1].split(';')[0]);
 
-    console.log(products);
+    const root = HTMLParser.parse(body);
+    const grid = root.querySelector('#shopify-section-collection-template > div > div');
+    const links = Array.from(grid.getElementsByTagName('a')).map(a => `https://chalicecollectibles.com${a.rawAttributes.href}`).slice(0, 50);
+    const images = Array.from(grid.getElementsByTagName('img')).map(img => `https:${img.rawAttributes.src}`).slice(0, 50);
+
+    for (const i in _products) {
+        const variant = _products[i].variants[0]
+        const product = {
+            // TODO: move this to ETL, for now we will have a single website for only chalice
+            name: variant.name,
+            image: images[i],
+            websites: [
+                {
+                    redirectUrl: links[i],
+                    name: _products[i].vendor,
+                    price: variant.price / 100,
+                }
+            ]
+        }
+
+        products.push(product);
+    }
+
     return products;
 }
+
 
 module.exports = { getProducts };
