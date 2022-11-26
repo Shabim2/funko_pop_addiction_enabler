@@ -4,8 +4,6 @@ import FunkoCard from './FunkoCard';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import shikamaru from '../examplePictures/shikamaru.jpg'
-import leorio from '../examplePictures/leorio.jpg'
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -18,39 +16,7 @@ export default class Dashboard extends Component {
   async componentDidMount() {
     let res = await axios.get('https://3vf6b90hzj.execute-api.us-east-1.amazonaws.com/dev/challice/products')
     console.log('res.data', res.data);
-    // this.setState({ products: res.data.products })
-    this.setState({
-      products: [
-        {
-          name: 'shabi funko',
-          image: leorio,
-          websites: [
-            {
-              website: 'dingleberry.com',
-              price: '5000'
-            },
-            {
-              website: 'animefunkos.com',
-              price: '4500'
-            }
-          ]
-        },
-        {
-          name: 'haroun funko',
-          image: shikamaru,
-          websites: [
-            {
-              website: 'dingleberry.com',
-              price: '4000'
-            },
-            {
-              website: 'animefunkos.com',
-              price: '3900'
-            }
-          ]
-        },
-      ]
-    })
+    this.setState({ products: res.data.products })
   }
 
   render() {
