@@ -23,7 +23,7 @@ export default function FunkoCard(props) {
           </Card>
         </Grid>
         <Grid xs={9} sx={{ padding: '10px 10px' }}>
-          <Card>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
               <CardHeader title={name} />
               <List disablePadding dense>
