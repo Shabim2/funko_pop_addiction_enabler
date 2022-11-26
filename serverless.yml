@@ -14,7 +14,7 @@ functions:
           path: challice/products
           method: get
           cors: true
-          
+
 plugins:
   - serverless-finch
 
@@ -23,3 +23,8 @@ custom:
     bucketName: funko-pop-addiction-enabler-bucket
     distributionFolder: client/build
     errorDocument: index.html
+
+package:
+  exclude:
+    - 'client/**'
+    - 'tests/**'

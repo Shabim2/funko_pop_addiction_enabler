@@ -27,7 +27,7 @@ const getProducts = async () => {
     const root = HTMLParser.parse(body);
     const grid = root.querySelector('#shopify-section-collection-template > div > div');
     const links = Array.from(grid.getElementsByTagName('a')).map(a => `https://chalicecollectibles.com${a.rawAttributes.href}`).slice(0, 50);
-    const images = Array.from(grid.getElementsByTagName('img')).map(img => `https:${img.rawAttributes.src}`).slice(0, 50);
+    const images = Array.from(grid.getElementsByTagName('img')).map(img => `https:${img.rawAttributes.src.replace('150x150.jpg', '268x268.jpg')}`).slice(0, 50);
 
     for (const i in _products) {
         const variant = _products[i].variants[0]
