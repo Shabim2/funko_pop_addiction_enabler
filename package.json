@@ -4,13 +4,16 @@
   "description": "",
   "main": "challiceCollectiblesClient.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy_fe": "cd client && npm run build && cd ../ && serverless client deploy --no-confirm",
+    "deploy_api": "sls deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^2.6.7",
-    "node-html-parser": "^6.1.4"
+    "node-html-parser": "^6.1.4",
+    "serverless-finch": "^2.8.0"
   }
 }
