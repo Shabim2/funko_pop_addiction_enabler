@@ -1,6 +1,7 @@
 [
   {
     "number": "#492",
+    "category" : "Animation",
     "name": "Super Saiyan 3 Goku",
     "image": "logo512.png",
     "year": "2018",
@@ -11,6 +12,7 @@
   },
   {
     "number": "#71",
+    "category" : "Animation",
     "name": "Naruto",
     "image": "logo512.png",
     "year": "2015",
@@ -21,6 +23,7 @@
   },
   {
     "number": "#921",
+    "category" : "Animation",
     "name": "Luffytaro",
     "image": "logo512.png",
     "year": "2021",
@@ -31,6 +34,7 @@
   },
   {
     "number": "#59",
+    "category" : "Animation",
     "name": "Ichigo",
     "image": "logo512.png",
     "year": "2015",
@@ -41,6 +45,7 @@
   },
   {
     "number": "#99",
+    "category" : "Animation",
     "name": "Tony Tony Chopper",
     "image": "logo512.png",
     "year": "2016",
@@ -51,6 +56,7 @@
   },
   {
     "number": "#969",
+    "category" : "Animation",
     "name": "Katsuki Bakugo (Firing)",
     "image": "logo512.png",
     "year": "2021",
@@ -61,6 +67,7 @@
   },
   {
     "number": "#1023",
+    "category" : "Animation",
     "name": "Sasuke (Rinnegan)",
     "image": "logo512.png",
     "year": "2021",
@@ -71,7 +78,8 @@
   },
   {
     "number": "#327",
-    "name": "Roronoa. Zoro",
+    "category" : "Animation",
+    "name": "Roronoa Zoro",
     "image": "logo512.png",
     "year": "2018",
     "notes": "N/A",

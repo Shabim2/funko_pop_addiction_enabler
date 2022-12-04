@@ -7,7 +7,6 @@ export default class Header extends Component {
       <Flex
         className="header-container"
         width={"-webkit-fill-available"}
-        minHeight={"7vh"}
         border={"1px"}
         p={2}
       >

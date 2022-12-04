@@ -11,15 +11,14 @@ export default class FunkoCard extends Component {
 
   render() {
     const { name, image, series, priceMin, priceMax } = this.props.funko;
-    console.log(image);
+
     return (
       <Flex
         className="funko-card"
         borderWidth="1px"
         borderRadius="lg"
         p={3}
-        display="flex"
-        minW={"35vw"}
+        minW={"60vw"}
       >
         <Box className="funko-card-image" borderWidth="1px">
           <Image
@@ -33,13 +32,13 @@ export default class FunkoCard extends Component {
         </Box>
         <Box className="funko-info" alignSelf={"center"} margin={"auto"}>
           <Stack>
-            <Text as="b" fontSize="lg">
+            <Text as="b" fontSize="2xl">
               {name}
             </Text>
-            <Text as="b" fontSize="lg">
+            <Text as="b" fontSize="2xl">
               {series}
             </Text>
-            <Text fontSize="lg">
+            <Text fontSize="2xl">
               Price Range: {priceMin} - {priceMax}
             </Text>
           </Stack>

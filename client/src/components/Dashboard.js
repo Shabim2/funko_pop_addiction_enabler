@@ -1,9 +1,10 @@
-import { Center, Container, Flex, Stack } from "@chakra-ui/react";
+import { Box, Center, Container, Flex, Select, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import React, { Component } from "react";
 import FunkoCard from "./FunkoCard";
 import Header from "./Header";
 import mockListData from "../data/mockListData.json";
+import SearchBar from "./SearchBar";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -16,20 +17,23 @@ export default class Dashboard extends Component {
   }
 
   async componentDidMount() {
-    const products = mockListData
+    const products = mockListData;
     this.originalProducts = [...products];
     this.setState({ products: products });
   }
   render() {
     const { products } = this.state;
     return (
-      <Flex className="dashboard-container" justifyContent={"center"}>
-        <Stack spacing={4} className="funko-stack">
+      <Container className="dashboard-container" minW={"-webkit-max-content"}>
+        {/* <Box> */}
+        <SearchBar />
+        <Stack className="funko-stack" spacing={4}>
           {products.map((product, index) => {
             return <FunkoCard key={index} funko={product} />;
           })}
         </Stack>
-      </Flex>
+        {/* </Box> */}
+      </Container>
     );
   }
 }
