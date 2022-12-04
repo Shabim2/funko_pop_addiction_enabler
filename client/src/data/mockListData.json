@@ -1,0 +1,82 @@
+[
+  {
+    "number": "#492",
+    "name": "Super Saiyan 3 Goku",
+    "image": "logo512.png",
+    "year": "2018",
+    "notes": "Metallic",
+    "series": "Dragon Ball Z",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#71",
+    "name": "Naruto",
+    "image": "logo512.png",
+    "year": "2015",
+    "notes": "Original\nHot Topic Pre-Release",
+    "series": "Naruto: Shippuden",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#921",
+    "name": "Luffytaro",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "Metallic Hot Topic Exclusive",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#59",
+    "name": "Ichigo",
+    "image": "logo512.png",
+    "year": "2015",
+    "notes": "N/A",
+    "series": "Bleach",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#99",
+    "name": "Tony Tony Chopper",
+    "image": "logo512.png",
+    "year": "2016",
+    "notes": "Flocked",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#969",
+    "name": "Katsuki Bakugo (Firing)",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "Hot Topic Exclusive",
+    "series": "My Hero Academia",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#1023",
+    "name": "Sasuke (Rinnegan)",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "AAA Anime Exclusives\nNormal\nGITD (Chase)",
+    "series": "Naruto: Shippuden",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "number": "#327",
+    "name": "Roronoa. Zoro",
+    "image": "logo512.png",
+    "year": "2018",
+    "notes": "N/A",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  }
+]

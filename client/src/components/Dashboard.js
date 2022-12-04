@@ -1,55 +1,35 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import FunkoCard from './FunkoCard';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import SearchBar from './SearchBar';
+import { Center, Container, Flex, Stack } from "@chakra-ui/react";
+import axios from "axios";
+import React, { Component } from "react";
+import FunkoCard from "./FunkoCard";
+import Header from "./Header";
+import mockListData from "../data/mockListData.json";
 
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
     };
 
-    this.originalProducts = []
+    this.originalProducts = [];
   }
 
   async componentDidMount() {
-    const { data: { products } } = await axios.get('https://3vf6b90hzj.execute-api.us-east-1.amazonaws.com/dev/challice/products')
+    const products = mockListData
     this.originalProducts = [...products];
-    this.setState({ products: products })
+    this.setState({ products: products });
   }
-
-  handleSearchInputChange = ({ target: { value } }) => {
-    if (!value) return;
-
-    this.setState({ products: this.originalProducts.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase())) })
-  }
-
   render() {
     const { products } = this.state;
     return (
-      <Container>
-        <Typography variant="h2" gutterBottom>
-          FunkoPop Dashboard
-        </Typography>
-        <SearchBar handleSearchInputChange={this.handleSearchInputChange} />
-        <Stack spacing={4}>
+      <Flex className="dashboard-container" justifyContent={"center"}>
+        <Stack spacing={4} className="funko-stack">
           {products.map((product, index) => {
-            const { name, websites, image } = product;
-            return (
-              <FunkoCard
-                key={index}
-                name={name}
-                websites={websites}
-                image={image}
-              />
-            )
+            return <FunkoCard key={index} funko={product} />;
           })}
         </Stack>
-      </Container>
-    )
+      </Flex>
+    );
   }
 }

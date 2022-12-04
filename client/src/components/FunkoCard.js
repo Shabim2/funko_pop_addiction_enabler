@@ -1,50 +1,50 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import List from '@mui/material/List';
-import { CardHeader, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import React, { Component } from "react";
 
+export default class FunkoCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      prices: [],
+    };
+  }
 
-export default function FunkoCard(props) {
-  const { name, websites, image } = props;
-  return (
-    <Card raised sx={{ width: '100%' }}>
-      <Grid container>
-        <Grid xs={3} sx={{ padding: '10px 10px' }}>
-          <Card>
-            <CardMedia
-              component="img"
-              // height="200"
-              image={image}
-              alt={name}
-            />
-          </Card>
-        </Grid>
-        <Grid xs={9} sx={{ padding: '10px 10px' }}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <CardHeader title={name} />
-              <List disablePadding dense>
-                {websites.map((website, index) => {
-                  const { name, price, redirectUrl } = website;
-                  return (
-                    <ListItem dense>
-                      <ListItemButton component="a" href={redirectUrl} target="_blank">
-                        <ListItemText>
-                          {name}: ${price}
-                        </ListItemText>
-                      </ListItemButton>
-                    </ListItem>
-                  )
-                })}
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </Card>
-    
-  );
+  render() {
+    const { name, image, series, priceMin, priceMax } = this.props.funko;
+    console.log(image);
+    return (
+      <Flex
+        className="funko-card"
+        borderWidth="1px"
+        borderRadius="lg"
+        p={3}
+        display="flex"
+        minW={"35vw"}
+      >
+        <Box className="funko-card-image" borderWidth="1px">
+          <Image
+            src={image}
+            alt={"funko-image"}
+            boxSize={"15vw"}
+            minH={"130px"}
+            minW={"130px"}
+            objectFit={"scale-down"}
+          />
+        </Box>
+        <Box className="funko-info" alignSelf={"center"} margin={"auto"}>
+          <Stack>
+            <Text as="b" fontSize="lg">
+              {name}
+            </Text>
+            <Text as="b" fontSize="lg">
+              {series}
+            </Text>
+            <Text fontSize="lg">
+              Price Range: {priceMin} - {priceMax}
+            </Text>
+          </Stack>
+        </Box>
+      </Flex>
+    );
+  }
 }
