@@ -13,11 +13,11 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
+import withRouter from "./withRouter";
 import mockData from "../data/mockItemData.json";
 import PriceGraph from "./PriceGraph";
 
-
-export default class FunkoInfo extends Component {
+class FunkoInfo extends Component {
   constructor(props) {
     super(props);
 
@@ -29,7 +29,9 @@ export default class FunkoInfo extends Component {
   }
 
   componentDidMount() {
-    const funko = mockData[0];
+    const funkoId = this.props.params.funko_id;
+    const funko = mockData.filter((m) => m.id === funkoId)[0];
+    console.log(funko);
     const variants = funko.variants;
     const currentVariant = variants[0];
     this.setState({ funko: funko, variants: variants, currentVariant: currentVariant });
@@ -72,6 +74,7 @@ export default class FunkoInfo extends Component {
   render() {
     const { funko, variants, currentVariant } = this.state;
     const { number, name, image, series } = funko;
+
     return (
       <Box className="funko-info-container" p={4}>
         {funko && (
@@ -79,13 +82,13 @@ export default class FunkoInfo extends Component {
             <Heading>
               #{number} {name} - {series}
             </Heading>
-            <Image src={image} alt={"funko-image"} border="1px" boxSize={"30vw"} />
+            <Image src={`/${image}`} alt={"funko-image"} border="1px" boxSize={"30vw"} />
             <HStack className="variants-container">
               {variants.length && this.renderVariants()}
             </HStack>
             <Wrap className="funko-info" justify={"center"} margin="auto">
               <WrapItem className="graph-container">
-                {variants.length && <PriceGraph currentVariant={currentVariant}/>}
+                {variants.length && <PriceGraph currentVariant={currentVariant} />}
               </WrapItem>
               <WrapItem className="links-container" width={"auto"}>
                 {variants.length && this.renderLinks()}
@@ -97,3 +100,4 @@ export default class FunkoInfo extends Component {
     );
   }
 }
+export default withRouter(FunkoInfo);

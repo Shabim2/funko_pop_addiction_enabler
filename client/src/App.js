@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import Dashboard from "./components/Dashboard";
-import FunkoInfo from "./components/FunkoInfo";
-import Header from "./components/Header";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   return (
     <div className="App">
-      {/* <Dashboard /> */}
-      <FunkoInfo/>
+      <RouterProvider router={router} />
     </div>
   );
 }
