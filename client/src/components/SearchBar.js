@@ -3,10 +3,7 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  InputRightElement,
   Select,
-  Spacer,
-  Stack,
 } from "@chakra-ui/react";
 import React, { Component } from "react";
 
