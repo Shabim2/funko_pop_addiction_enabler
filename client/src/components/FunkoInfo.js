@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 import React, { Component } from "react";
 import mockData from "../data/mockItemData.json";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import PriceGraph from "./PriceGraph";
 
 
@@ -37,7 +36,7 @@ export default class FunkoInfo extends Component {
   }
 
   handleVariantClick = (event, i) => {
-    const { variants, currentVariant } = this.state;
+    const { variants } = this.state;
     this.setState({ currentVariant: variants[i] });
   };
 
@@ -56,7 +55,7 @@ export default class FunkoInfo extends Component {
     return (
       <VStack className="variant-listings" spacing={5}>
         {listings.map((listing, i) => (
-          <LinkBox as={Card} margin={"auto 2vw"} borderWidth="1px">
+          <LinkBox key={i} as={Card} margin={"auto 2vw"} borderWidth="1px">
             <Box className="listing-card" p={"10%"} minWidth={"xs"}>
               <LinkOverlay href={listing.url} margin="auto">
                 <Text className="listing-link">
@@ -84,7 +83,6 @@ export default class FunkoInfo extends Component {
             <HStack className="variants-container">
               {variants.length && this.renderVariants()}
             </HStack>
-            {/* <SimpleGrid className="funko-info" columns={[1, 1, 2]}> */}
             <Wrap className="funko-info" justify={"center"} margin="auto">
               <WrapItem className="graph-container">
                 {variants.length && <PriceGraph currentVariant={currentVariant}/>}
@@ -93,7 +91,6 @@ export default class FunkoInfo extends Component {
                 {variants.length && this.renderLinks()}
               </WrapItem>
             </Wrap>
-            {/* </SimpleGrid> */}
           </VStack>
         )}
       </Box>

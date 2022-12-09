@@ -16,10 +16,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 export default class PriceGraph extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderGraph = () => {
     const { currentVariant } = this.props;
     const dates = Object.keys(currentVariant.price);
@@ -30,12 +26,12 @@ export default class PriceGraph extends Component {
       const obj = { date: dates[i].slice(0, -5), price: prices[i] };
       dataset.push(obj);
     }
-    console.log(dataset);
+    
     const min = Math.min(...prices) - 1;
     const max = Math.max(...prices) + 1;
 
     return (
-      <LineChart width={600} height={300} data={dataset}>
+      <LineChart width={650} height={325} data={dataset}>
         <CartesianGrid strokeDasharray="1" />
         <XAxis
           dataKey="date"
