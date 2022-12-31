@@ -5,7 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts"
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <Box className="custom-tooltip" p={3} backgroundColor={"#cfcfcf"} opacity={0.7}>
+      <Box className="custom-tooltip" p={3} backgroundColor="#cfcfcf" opacity={0.7}>
         <Text className="date-tooltip">{`Date: ${label}`}</Text>
         <Text className="price-tooltip">{`Price: $${payload[0].value}`}</Text>
       </Box>
@@ -31,20 +31,20 @@ export default class PriceGraph extends Component {
     const max = Math.max(...prices) + 1;
 
     return (
-      <LineChart width={650} height={325} data={dataset}>
+      <LineChart width={650} height={350} data={dataset}>
         <CartesianGrid strokeDasharray="1" />
         <XAxis
           dataKey="date"
           tickCount={dataset.length}
           label={{ value: "Date", offset: "-5", position: "insideBottom" }}
-          padding={{ left: 20, right: 20 }}
+          // padding={{ left: 20, right: 20 }}
         />
         <YAxis
           type="number"
           label={{ value: "Price ($)", angle: -90, offset: "20", position: "insideLeft" }}
           domain={[min, max]}
           tickCount={dataset.length}
-          padding={{ top: 20, bottom: 20 }}
+          // padding={{ top: 20, bottom: 20 }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="linear" dataKey="price" stroke="#1a188c" activeDot={{ r: 8 }} />

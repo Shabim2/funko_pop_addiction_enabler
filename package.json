@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.15",
     "chart.js": "^4.0.1",
     "node-fetch": "^2.6.7",
     "node-html-parser": "^6.1.4",

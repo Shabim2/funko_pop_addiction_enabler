@@ -11,7 +11,7 @@ export default class FunkoCard extends Component {
     const { name, image, series, priceMin, priceMax } = this.props.funko;
 
     return (
-      <LinkBox>
+      <LinkBox className="funko-car-link-overlay">
         <LinkOverlay href={`/funko/${this.props.funko.id}`}>
           <Card
             className="funko-card"
@@ -22,14 +22,15 @@ export default class FunkoCard extends Component {
           >
             <Image
               src={image}
-              alt={"funko-image"}
-              boxSize={"15vw"}
-              minH={"150px"}
-              minW={"150px"}
-              objectFit={"scale-down"}
+              alt="funko-image"
+              boxSize="15vw"
+              minH="175px"
+              minW="175px"
+              objectFit="cover"
               border="1px #E2E8F0 solid"
+              alignSelf="center"
             />
-            <CardBody className="funko-card-body" m={"auto"}>
+            <CardBody className="funko-card-body" m="auto">
               <Stack>
                 <Text as="b" fontSize="2xl">
                   {name}

@@ -1,10 +1,4 @@
-import {
-  Button,
-  Input,
-  InputGroup,
-  InputRightAddon,
-  Select,
-} from "@chakra-ui/react";
+import { Button, Input, InputGroup, InputRightAddon, Select } from "@chakra-ui/react";
 import React, { Component } from "react";
 
 export default class SearchBar extends Component {
@@ -18,7 +12,7 @@ export default class SearchBar extends Component {
   render() {
     const { options } = this.state;
     return (
-      <InputGroup className="funko-search-bar" m={"4vh auto"}>
+      <InputGroup className="funko-search-bar" m="4vh auto">
         <Input className="funko-search-input" placeholder="Search..." />
         <InputRightAddon className="funko-search-right-addon" p={0}>
           <Button>Search</Button>
@@ -27,8 +21,8 @@ export default class SearchBar extends Component {
           className="funko-search-select"
           variant="filled"
           placeholder="Category"
-          width={"23vw"}
-          marginInlineStart={"2vw"}
+          width="23vw"
+          marginInlineStart="2vw"
         >
           {options.map((opt) => (
             <option key={opt} value={opt}>

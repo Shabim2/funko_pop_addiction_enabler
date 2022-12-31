@@ -1,4 +1,4 @@
-import { Container,  Stack } from "@chakra-ui/react";
+import { Container, Stack } from "@chakra-ui/react";
 import React, { Component } from "react";
 import FunkoCard from "./FunkoCard";
 // import Header from "./Header";
@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
   render() {
     const { products } = this.state;
     return (
-      <Container className="dashboard-container" minW={'60vw'}>
+      <Container className="dashboard-container" minW="60vw">
         <SearchBar />
         <Stack className="funko-stack" spacing={4}>
           {products.map((product, index) => {
