@@ -1,13 +1,20 @@
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
   colors: {
     transparent: "transparent",
-    "Royal Purple": "78569f",
-    Jonquil: "ecc30b",
-    Carmine: "94101d",
-    Platinum: "e8e9eb",
-    "Midnight Green Eagle Green": "145266",
-    black: '#000',
-    white: '#fff',
+    purple: "78569f",
+    jonquil: "#ecc30b",
+    carmine: "#94101d",
+    platinum: "#e8e9eb",
+    eagleBlue: "#145266",
+    black: "#000",
+    white: "#fff",
   },
-};
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
+});
+
+export default theme;
