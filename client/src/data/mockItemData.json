@@ -678,5 +678,90 @@
         ]
       }
     ]
+  },
+  {
+    "id": "6390f7c4fc13ae1177000781",
+    "number": "99",
+    "name": "Funko Name",
+    "series": "Funko Series",
+    "year": "2022",
+    "image": "logo512.png",
+    "variants": [
+      {
+        "name": "Variant 1",
+        "price": {
+          "12/7/2022": 9,
+          "12/8/2022": 11,
+          "12/9/2022": 10,
+          "12/10/2022": 12,
+          "12/11/2022": 9,
+          "12/12/2022": 12
+        },
+        "marketplaceListings": [
+          {
+            "url": "https://ebay.com",
+            "price": "$9"
+          },
+          {
+            "url": "https://walmart.com",
+            "price": "$11"
+          },
+          {
+            "url": "https://mercari.com",
+            "price": "$14"
+          }
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "price": {
+          "12/7/2022": 7,
+          "12/8/2022": 8,
+          "12/9/2022": 10,
+          "12/10/2022": 8,
+          "12/11/2022": 9,
+          "12/12/2022": 8
+        },
+        "marketplaceListings": [
+          {
+            "url": "https://ebay.com",
+            "price": "$7"
+          },
+          {
+            "url": "https://walmart.com",
+            "price": "$10"
+          },
+          {
+            "url": "https://mercari.com",
+            "price": "$8"
+          }
+        ]
+      },
+      {
+        "name": "Variant 3",
+        "price": {
+          "12/7/2022": 34,
+          "12/8/2022": 32,
+          "12/9/2022": 33,
+          "12/10/2022": 31,
+          "12/11/2022": 35,
+          "12/12/2022": 34
+        },
+        "marketplaceListings": [
+          {
+            "url": "https://ebay.com",
+            "price": "$34"
+          },
+          {
+            "url": "https://walmart.com",
+            "price": "$31"
+          },
+          {
+            "url": "https://mercari.com",
+            "price": "$32"
+          }
+        ]
+      }
+    ]
   }
 ]

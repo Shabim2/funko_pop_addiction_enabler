@@ -98,7 +98,6 @@ class FunkoInfo extends Component {
             <Image
               src={`/${image}`}
               alt="funko-image"
-              border="1px"
               boxSize="30vw"
               minW="350px"
               minH="350px"

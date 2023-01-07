@@ -23,6 +23,7 @@ export default class SearchBar extends Component {
           placeholder="Category"
           width="23vw"
           marginInlineStart="2vw"
+          onChange={(e) => this.props.onCategorySelect(e)}
         >
           {options.map((opt) => (
             <option key={opt} value={opt}>
