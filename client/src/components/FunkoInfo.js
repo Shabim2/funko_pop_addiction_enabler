@@ -57,12 +57,6 @@ class FunkoInfo extends Component {
     ));
   };
 
-  randomColor = () => {
-    const keys = Object.keys(theme.colors.customColors);
-    const color = theme.colors.customColors[keys[(keys.length * Math.random()) << 0]];
-    console.log(color);
-    return color;
-  };
 
   renderLinks = () => {
     const { currentVariant } = this.state;
@@ -87,7 +81,7 @@ class FunkoInfo extends Component {
   render() {
     const { funko, variants, currentVariant } = this.state;
     const { number, name, image, series } = funko;
-    this.randomColor();
+
     return (
       <Box className="funko-info-container" p={4}>
         {funko && (

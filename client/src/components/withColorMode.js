@@ -4,8 +4,10 @@ import React from "react";
 
 const withColorMode = (WrappedComponent) => (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const fontColorMode = useColorModeValue('gray.800', 'white')
- 
+  const fontColorMode = useColorModeValue("#1A202C", "#FFF");
+  const gridColorMode = useColorModeValue("#F7FAFC", "#1A202C");
+  const chartLineColorMode = useColorModeValue('#145266', '#F7EF81')
+  const chartStrokeColorMode = useColorModeValue('#A0AEC0',"#4A5568");
 
   return (
     <WrappedComponent
@@ -13,6 +15,9 @@ const withColorMode = (WrappedComponent) => (props) => {
       colorMode={colorMode}
       toggleColorMode={toggleColorMode}
       fontColor={fontColorMode}
+      gridColorMode={gridColorMode}
+      chartLineColorMode={chartLineColorMode}
+      chartStrokeColorMode={chartStrokeColorMode}
     />
   );
 };

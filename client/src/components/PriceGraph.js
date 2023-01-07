@@ -28,7 +28,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 class PriceGraph extends Component {
   renderGraph = () => {
-    const { fontColor } = this.props;
+    const { fontColor, gridColorMode, chartLineColorMode, chartStrokeColorMode } = this.props;
+    console.log(chartLineColorMode);
     const { currentVariant } = this.props;
 
     const dates = Object.keys(currentVariant.price);
@@ -45,12 +46,12 @@ class PriceGraph extends Component {
 
     return (
       <LineChart width={650} height={350} data={dataset}>
-        <CartesianGrid strokeDasharray="1" fill={"#fff"} />
+        <CartesianGrid strokeDasharray="0" fill={gridColorMode} stroke={chartStrokeColorMode} />
         <XAxis
           dataKey="date"
           tickCount={dataset.length}
-          label={{ value: "Date", offset: "-5", position: "insideBottom", fill: fontColor}}
-          padding={{ left: 20, right: 20 }}
+          label={{ value: "Date", offset: "-5", position: "insideBottom", fill: fontColor }}
+          padding={{ right: 40, left: 40 }}
           tick={{ fill: fontColor }}
           tickLine={{ stroke: fontColor, fill: fontColor }}
         />
@@ -65,17 +66,12 @@ class PriceGraph extends Component {
           }}
           domain={[min, max]}
           tickCount={dataset.length}
-          padding={{ top: 20, bottom: 20 }}
+          padding={{ bottom: 40 }}
           tick={{ fill: fontColor }}
           tickLine={{ stroke: fontColor, fill: fontColor }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Line
-          type="linear"
-          dataKey="price"
-          stroke={theme.colors.customColors.royalDarkBlue}
-          activeDot={{ r: 8 }}
-        />
+        <Line type="linear" dataKey="price" stroke={chartLineColorMode} activeDot={{ r: 8 }} />
       </LineChart>
     );
   };
