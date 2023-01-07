@@ -1,19 +1,34 @@
-import { Box, IconButton, Flex, Heading, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  IconButton,
+  Flex,
+  Text,
+  useColorMode,
+  useColorModeValue,
+  theme,
+} from "@chakra-ui/react";
 import React from "react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box className="navbar-container" border={"1px"} p={1}>
-      <Flex h={"4vh"} alignItems={"center"} justifyContent={"space-between"}>
+    <Box
+      className="navbar-container"
+      p={"0.5vw"}
+      bg={useColorModeValue("gray.100", "gray.900")}
+    >
+      <Flex h={"6vh"} alignItems={"center"} justifyContent={"space-between"}>
         <Box>
-          <Heading size={"lg"}>Funko Pop Addiction Enabler</Heading>
+          <Text fontSize={"2xl"} as="b">
+            Funko Pop Addiction Enabler
+          </Text>
         </Box>
         <IconButton
           onClick={toggleColorMode}
           icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           aria-label="color-toggle-button"
+          bg={colorMode === "light" ? theme.colors.gray[300] : theme.colors.whiteAlpha[200]}
         />
       </Flex>
     </Box>

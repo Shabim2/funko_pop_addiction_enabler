@@ -1,23 +1,36 @@
+// @ts-nocheck
 import React, { Component } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import theme from "../theme";
+import withColorMode from "./withColorMode";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <Box className="custom-tooltip" p={3} backgroundColor="#cfcfcf" opacity={0.7}>
-        <Text className="date-tooltip">{`Date: ${label}`}</Text>
-        <Text className="price-tooltip">{`Price: $${payload[0].value}`}</Text>
+      <Box
+        className="custom-tooltip"
+        p={3}
+        backgroundColor="#cfcfcf"
+        opacity={0.7}
+        borderColor={theme.colors.customColors.royalDarkBlue}
+      >
+        <Text className="date-tooltip" textColor={"black"}>{`Date: ${label}`}</Text>
+        <Text
+          className="price-tooltip"
+          textColor={"black"}
+        >{`Price: $${payload[0].value}`}</Text>
       </Box>
     );
   }
 
   return null;
 };
-
-export default class PriceGraph extends Component {
+class PriceGraph extends Component {
   renderGraph = () => {
+    const { fontColor } = this.props;
     const { currentVariant } = this.props;
+
     const dates = Object.keys(currentVariant.price);
     const prices = Object.values(currentVariant.price);
     let dataset = [];
@@ -32,22 +45,37 @@ export default class PriceGraph extends Component {
 
     return (
       <LineChart width={650} height={350} data={dataset}>
-        <CartesianGrid strokeDasharray="1" />
+        <CartesianGrid strokeDasharray="1" fill={"#fff"} />
         <XAxis
           dataKey="date"
           tickCount={dataset.length}
-          label={{ value: "Date", offset: "-5", position: "insideBottom" }}
-          // padding={{ left: 20, right: 20 }}
+          label={{ value: "Date", offset: "-5", position: "insideBottom", fill: fontColor}}
+          padding={{ left: 20, right: 20 }}
+          tick={{ fill: fontColor }}
+          tickLine={{ stroke: fontColor, fill: fontColor }}
         />
         <YAxis
           type="number"
-          label={{ value: "Price ($)", angle: -90, offset: "20", position: "insideLeft" }}
+          label={{
+            value: "Price ($)",
+            angle: -90,
+            offset: "20",
+            position: "insideLeft",
+            fill: fontColor,
+          }}
           domain={[min, max]}
           tickCount={dataset.length}
-          // padding={{ top: 20, bottom: 20 }}
+          padding={{ top: 20, bottom: 20 }}
+          tick={{ fill: fontColor }}
+          tickLine={{ stroke: fontColor, fill: fontColor }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Line type="linear" dataKey="price" stroke="#1a188c" activeDot={{ r: 8 }} />
+        <Line
+          type="linear"
+          dataKey="price"
+          stroke={theme.colors.customColors.royalDarkBlue}
+          activeDot={{ r: 8 }}
+        />
       </LineChart>
     );
   };
@@ -55,3 +83,5 @@ export default class PriceGraph extends Component {
     return this.renderGraph();
   }
 }
+
+export default withColorMode(PriceGraph);

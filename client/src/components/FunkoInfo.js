@@ -16,6 +16,7 @@ import React, { Component } from "react";
 import withRouter from "./withRouter";
 import mockData from "../data/mockItemData.json";
 import PriceGraph from "./PriceGraph";
+import theme from "../theme";
 
 class FunkoInfo extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class FunkoInfo extends Component {
   componentDidMount() {
     const funkoId = this.props.params.funko_id;
     const funko = mockData.filter((m) => m.id === funkoId)[0];
-    console.log(funko);
+
     const variants = funko.variants;
     const currentVariant = variants[0];
     this.setState({ funko: funko, variants: variants, currentVariant: currentVariant });
@@ -45,10 +46,22 @@ class FunkoInfo extends Component {
   renderVariants = () => {
     const { variants } = this.state;
     return variants.map((variant, i) => (
-      <Button key={variant.name} onClick={(e) => this.handleVariantClick(e, i)}>
+      <Button
+        key={variant.name}
+        onClick={(e) => this.handleVariantClick(e, i)}
+        variant={"outline"}
+        colorScheme={"teal"}
+      >
         {variant.name}
       </Button>
     ));
+  };
+
+  randomColor = () => {
+    const keys = Object.keys(theme.colors.customColors);
+    const color = theme.colors.customColors[keys[(keys.length * Math.random()) << 0]];
+    console.log(color);
+    return color;
   };
 
   renderLinks = () => {
@@ -74,7 +87,7 @@ class FunkoInfo extends Component {
   render() {
     const { funko, variants, currentVariant } = this.state;
     const { number, name, image, series } = funko;
-
+    this.randomColor();
     return (
       <Box className="funko-info-container" p={4}>
         {funko && (
@@ -86,7 +99,7 @@ class FunkoInfo extends Component {
               src={`/${image}`}
               alt="funko-image"
               border="1px"
-              boxSize="40vw"
+              boxSize="30vw"
               minW="350px"
               minH="350px"
             />
@@ -94,7 +107,7 @@ class FunkoInfo extends Component {
               {variants.length && this.renderVariants()}
             </HStack>
             <Wrap className="funko-info" justify="center" m="auto">
-              <WrapItem className="graph-container" w="auto">
+              <WrapItem className="graph-container" w="auto" marginRight={"8vw"}>
                 {variants.length && <PriceGraph currentVariant={currentVariant} />}
               </WrapItem>
               <WrapItem className="links-container" w="auto">
