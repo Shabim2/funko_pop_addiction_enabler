@@ -46,9 +46,7 @@ const getProducts = async () => {
 
         products.push(product);
     }
-
     return products;
 }
-
 
 module.exports = { getProducts };

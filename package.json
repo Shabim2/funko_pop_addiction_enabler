@@ -12,6 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "aws-sdk": "^2.1267.0",
+=======
+    "@chakra-ui/icons": "^2.0.15",
+    "chart.js": "^4.0.1",
+>>>>>>> c431e54d0e24c5b32c57887d867cc0b85e95d6fc
     "node-fetch": "^2.6.7",
     "node-html-parser": "^6.1.4",
     "serverless-finch": "^2.8.0"
