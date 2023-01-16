@@ -1,55 +1,49 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import FunkoCard from './FunkoCard';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import SearchBar from './SearchBar';
+import { Container, Stack } from "@chakra-ui/react";
+import React, { Component } from "react";
+import FunkoCard from "./FunkoCard";
+import mockListData from "../data/mockListData.json";
+import SearchBar from "./SearchBar";
 
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      originalProducts: [],
+      currentCategory: "",
     };
-
-    this.originalProducts = []
   }
 
   async componentDidMount() {
-    const { data: { products } } = await axios.get('https://3vf6b90hzj.execute-api.us-east-1.amazonaws.com/dev/challice/products')
-    this.originalProducts = [...products];
-    this.setState({ products: products })
+    this.setState({ products: mockListData, originalProducts: mockListData });
   }
 
-  handleSearchInputChange = ({ target: { value } }) => {
-    if (!value) return;
+  onCategorySelect = (e) => {
+    const { originalProducts } = this.state;
+    const category = e.target.value;
 
-    this.setState({ products: this.originalProducts.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase())) })
-  }
+    if (category === "") {
+      console.log(category);
+      this.setState({ products: [...originalProducts], currentCategory: "" });
+    } else {
+      let filteredProducts = [...originalProducts].filter(
+        (product) => product.category === category
+      );
+      this.setState({ products: filteredProducts, currentCategory: category });
+    }
+  };
 
   render() {
     const { products } = this.state;
     return (
-      <Container>
-        <Typography variant="h2" gutterBottom>
-          FunkoPop Dashboard
-        </Typography>
-        <SearchBar handleSearchInputChange={this.handleSearchInputChange} />
-        <Stack spacing={4}>
+      <Container className="dashboard-container" minW="60vw">
+        <SearchBar onCategorySelect={this.onCategorySelect} />
+        <Stack className="funko-stack" spacing={4}>
           {products.map((product, index) => {
-            const { name, websites, image } = product;
-            return (
-              <FunkoCard
-                key={index}
-                name={name}
-                websites={websites}
-                image={image}
-              />
-            )
+            return <FunkoCard key={index} funko={product} />;
           })}
         </Stack>
       </Container>
-    )
+    );
   }
 }

@@ -1,10 +1,14 @@
-import './App.css';
-import Dashboard from './components/Dashboard';
+import React from "react";
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
+      <Navbar/>
+      <RouterProvider router={router} />
     </div>
   );
 }

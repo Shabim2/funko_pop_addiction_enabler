@@ -1,0 +1,110 @@
+[
+  {
+    "id": "6390f7c4fc13ae1177000064",
+    "number": "#492",
+    "category": "Animation",
+    "name": "Super Saiyan 3 Goku",
+    "image": "logo512.png",
+    "year": "2018",
+    "notes": "Metallic",
+    "series": "Dragon Ball Z",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000075",
+    "number": "#71",
+    "category": "Animation",
+    "name": "Naruto",
+    "image": "logo512.png",
+    "year": "2015",
+    "notes": "Original\nHot Topic Pre-Release",
+    "series": "Naruto: Shippuden",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000086",
+    "number": "#921",
+    "category": "Animation",
+    "name": "Luffytaro",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "Metallic Hot Topic Exclusive",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000097",
+    "number": "#59",
+    "category": "Animation",
+    "name": "Ichigo",
+    "image": "logo512.png",
+    "year": "2015",
+    "notes": "N/A",
+    "series": "Bleach",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000108",
+    "number": "#99",
+    "category": "Animation",
+    "name": "Tony Tony Chopper",
+    "image": "logo512.png",
+    "year": "2016",
+    "notes": "Flocked",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000119",
+    "number": "#969",
+    "category": "Animation",
+    "name": "Katsuki Bakugo (Firing)",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "Hot Topic Exclusive",
+    "series": "My Hero Academia",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000120",
+    "number": "#1023",
+    "category": "Animation",
+    "name": "Sasuke (Rinnegan)",
+    "image": "logo512.png",
+    "year": "2021",
+    "notes": "AAA Anime Exclusives\nNormal\nGITD (Chase)",
+    "series": "Naruto: Shippuden",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000121",
+    "number": "#327",
+    "category": "Animation",
+    "name": "Roronoa Zoro",
+    "image": "logo512.png",
+    "year": "2018",
+    "notes": "N/A",
+    "series": "One Piece",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  },
+  {
+    "id": "6390f7c4fc13ae1177000781",
+    "number": "#327",
+    "category": "Movies",
+    "name": "Iron Man",
+    "image": "logo512.png",
+    "year": "2018",
+    "notes": "N/A",
+    "series": "Marvel's Avengers",
+    "priceMin": "$9",
+    "priceMax": "$14"
+  }
+]

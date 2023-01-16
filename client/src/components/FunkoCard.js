@@ -1,50 +1,51 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import List from '@mui/material/List';
-import { CardHeader, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Card, CardBody, Image, LinkBox, LinkOverlay, Stack, Text } from "@chakra-ui/react";
+import React, { Component } from "react";
+import { Navigate } from "react-router-dom";
 
+export default class FunkoCard extends Component {
+  handleCardClick = () => {
+    return <Navigate to={`/funko/${this.props.funko.id}`} replace={true} />;
+  };
 
-export default function FunkoCard(props) {
-  const { name, websites, image } = props;
-  return (
-    <Card raised sx={{ width: '100%' }}>
-      <Grid container>
-        <Grid xs={3} sx={{ padding: '10px 10px' }}>
-          <Card>
-            <CardMedia
-              component="img"
-              // height="200"
-              image={image}
-              alt={name}
+  render() {
+    const { name, image, series, priceMin, priceMax } = this.props.funko;
+
+    return (
+      <LinkBox className="funko-car-link-overlay">
+        <LinkOverlay href={`/funko/${this.props.funko.id}`}>
+          <Card
+            className="funko-card"
+            direction={{ base: "column", sm: "row" }}
+            overflow="hidden"
+            variant="outline"
+            p={1}
+          >
+            <Image
+              src={image}
+              alt="funko-image"
+              boxSize="15vw"
+              minH="175px"
+              minW="175px"
+              objectFit="cover"
+              border="1px #E2E8F0 solid"
+              alignSelf="center"
             />
+            <CardBody className="funko-card-body" m="auto">
+              <Stack>
+                <Text as="b" fontSize="2xl">
+                  {name}
+                </Text>
+                <Text as="b" fontSize="2xl">
+                  {series}
+                </Text>
+                <Text fontSize="2xl">
+                  Price Range: {priceMin} - {priceMax}
+                </Text>
+              </Stack>
+            </CardBody>
           </Card>
-        </Grid>
-        <Grid xs={9} sx={{ padding: '10px 10px' }}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <CardHeader title={name} />
-              <List disablePadding dense>
-                {websites.map((website, index) => {
-                  const { name, price, redirectUrl } = website;
-                  return (
-                    <ListItem dense>
-                      <ListItemButton component="a" href={redirectUrl} target="_blank">
-                        <ListItemText>
-                          {name}: ${price}
-                        </ListItemText>
-                      </ListItemButton>
-                    </ListItem>
-                  )
-                })}
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </Card>
-    
-  );
+        </LinkOverlay>
+      </LinkBox>
+    );
+  }
 }
